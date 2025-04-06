@@ -627,8 +627,6 @@
 				};
 			};
 		};
-<<<<<<< HEAD
-=======
 
 		rk809_codec: codec {
 			#sound-dai-cells = <0>;
@@ -645,7 +643,6 @@
 			mic-in-differential;
 			status = "okay";
 		};
->>>>>>> 72821d5b7819 (arm64:dts: Add new board rock-3a)
 	};
 };
 
