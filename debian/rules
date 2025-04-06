@@ -145,6 +145,10 @@ clean: debian/control debian/canonical-certs.pem debian/canonical-revoked-certs.
 	# Install the retpoline extractor.
 	cp $(DROOT)/scripts/retpoline-extract-one scripts/ubuntu-retpoline-extract-one
 
+	# cp mali_csffw.bin
+	mkdir -p debian/build/build-rockchip/drivers/gpu/arm/bifrost/
+	cp drivers/gpu/arm/bifrost/mali_csffw.bin debian/build/build-rockchip/drivers/gpu/arm/bifrost/
+
 	# If we have a reconstruct script use it.
 	[ -f $(DEBIAN)/reconstruct ] && bash $(DEBIAN)/reconstruct || true
 
