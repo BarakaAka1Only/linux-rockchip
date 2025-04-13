@@ -1,3 +1,13 @@
+linux-rockchip (6.1.0-1032.32) noble; urgency=medium
+
+  * Add rock-5t board
+  * Add smart-am60 board
+  * Add som3588-cat board
+  * Add SOM3588-Cat Support
+  * drivers:  dma-buf: add support begin_cpu_access_partial and end_cpu_access_partial
+
+ -- Lemon1151 <smile1151@foxmail.com>  Sat, 13 Apr 2025 17:20:13 -0400
+
 linux-rockchip (6.1.0-1031.31) noble; urgency=medium
 
   * UBUNTU: Update is version number
