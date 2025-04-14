@@ -1,3 +1,9 @@
+linux-rockchip (6.1.115-2.2) noble; urgency=medium
+
+  * Drivers: Mali-GPU: Revert the bifrost DDK from g25p0-01eac0 back to g18p0-01eac0
+
+ -- Lemon1151 <smile1151@foxmail.com>  Sat, 14 Apr 2025 10:35:51 -0400
+
 linux-rockchip (6.1.115-1.1) noble; urgency=medium
 
   * Kernel: Synchronize with the upstream linux-rockchip and update the kernel to version 6.1.115
