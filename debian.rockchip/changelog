@@ -1,3 +1,9 @@
+linux-rockchip (6.1.115-3.3) noble; urgency=medium
+
+  * Add support for the rock-5t som3588-cat smart-am60 board
+
+ -- Lemon1151 <smile1151@foxmail.com>  Sat, 27 Apr 2025 20:35:51 -0400
+
 linux-rockchip (6.1.115-2.2) noble; urgency=medium
 
   * Drivers: Mali-GPU: Revert the bifrost DDK from g25p0-01eac0 back to g18p0-01eac0
