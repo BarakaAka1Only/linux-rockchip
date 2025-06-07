@@ -978,7 +978,6 @@
 &usbdrd_dwc3_0 {
 	dr_mode = "otg";
 	usb-role-switch;
-	vbus-supply = <&vcc5v0_host>;
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
