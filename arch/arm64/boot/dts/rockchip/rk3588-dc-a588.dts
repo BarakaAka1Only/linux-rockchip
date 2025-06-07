@@ -910,13 +910,6 @@
 	status = "okay";
 };
 
-&leds {
-  work_led: work {
-   gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_LOW>;
-   linux,default-trigger = "timer";
-  };
- };
-
 &can0{
 	status = "okay";
 };
@@ -986,12 +979,4 @@
 			remote-endpoint = <&usbc0_role_sw>;
 		};
 	};
-};
-
-&usbhost3_0 {
-	status = "okay";
-};
-
-&usbhost_dwc3_0 {
-	status = "okay";
 };
