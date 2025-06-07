@@ -365,6 +365,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-aim7-io.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-sige7.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-w3.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-cyber3588-aib.dtb
+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-dc-a588.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-firefly-itx-3588j.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-fxblox-rk1.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-hinlink-h88k.dtb
