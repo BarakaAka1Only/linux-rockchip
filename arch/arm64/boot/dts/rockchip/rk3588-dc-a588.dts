@@ -893,7 +893,7 @@
 &u2phy0_otg {
 	rockchip,typec-vbus-det;
 };
-/*
+
 &u2phy1_otg {
 	phy-supply = <&vcc5v0_host>;
 };
@@ -905,17 +905,10 @@
 &u2phy3_host {
 	phy-supply = <&vcc5v0_host>;
 };
-*/
+
 &sdmmc {
 	status = "okay";
 };
-
-&leds {
-  work_led: work {
-   gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_LOW>;
-   linux,default-trigger = "timer";
-  };
- };
 
 &can0{
 	status = "okay";
@@ -978,7 +971,6 @@
 &usbdrd_dwc3_0 {
 	dr_mode = "otg";
 	usb-role-switch;
-	vbus-supply = <&vcc5v0_host>;
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -987,12 +979,4 @@
 			remote-endpoint = <&usbc0_role_sw>;
 		};
 	};
-};
-
-&usbhost3_0 {
-	status = "okay";
-};
-
-&usbhost_dwc3_0 {
-	status = "okay";
 };
