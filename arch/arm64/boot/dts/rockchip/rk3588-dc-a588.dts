@@ -893,7 +893,7 @@
 &u2phy0_otg {
 	rockchip,typec-vbus-det;
 };
-/*
+
 &u2phy1_otg {
 	phy-supply = <&vcc5v0_host>;
 };
@@ -905,7 +905,7 @@
 &u2phy3_host {
 	phy-supply = <&vcc5v0_host>;
 };
-*/
+
 &sdmmc {
 	status = "okay";
 };
