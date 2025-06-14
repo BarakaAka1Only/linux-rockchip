@@ -192,6 +192,16 @@
 		regulator-max-microvolt = <5000000>;
 		vin-supply = <&vcc5v0_usbdcin>;
 	};
+	
+	vcc_3v3_sd_s0: vcc-3v3-sd-s0 {
+		compatible = "regulator-fixed";
+		pinctrl-names = "default";
+		regulator-name = "vcc_3v3_sd_s0";
+		enable-active-high;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		vin-supply = <&vcc_3v3_s3>;
+	};
 };
 
 &av1d_mmu {
@@ -378,7 +388,10 @@
 	disable-wp;
 	sd-uhs-sdr104;
 	vqmmc-supply = <&vccio_sd_s0>;
-	status = "disabled";
+	vmmc-supply = <&vcc_3v3_sd_s0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&sdmmc_bus4 &sdmmc_clk &sdmmc_cmd &sdmmc_det>;
+	status = "okay";
 };
 
 &tsadc {
@@ -471,6 +484,7 @@
 };
 
 &usbhost_dwc3_0 {
+	dr_mode = "host";
 	status = "okay";
 };
 
