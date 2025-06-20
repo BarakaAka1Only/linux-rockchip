@@ -9,12 +9,33 @@
 #include "rk3588.dtsi"
 #include "rk3588-dc-a588.dtsi"
 #include "rk3588-rk806-single.dtsi"
-#include "rk3588-linux.dtsi"
 
 / {
         model = "DCZTL DC A588";
         compatible = "dcztl,dc-a588", "rockchip,rk3588";	
-	
+
+	aliases {
+		mmc0 = &sdhci;
+		mmc1 = &sdmmc;
+	};
+
+	chosen {
+		bootargs = "earlycon=uart8250,mmio32,0xfeb50000 console=ttyFIQ0 irqchip.gicv3_pseudo_nmi=0 root=PARTUUID=614e0000-0000 rw rootwait";
+	};
+
+	fiq_debugger: fiq-debugger {
+		compatible = "rockchip,fiq-debugger";
+		rockchip,serial-id = <2>;
+		rockchip,wake-irq = <0>;
+		/* If enable uart uses irq instead of fiq */
+		rockchip,irq-mode-enable = <1>;
+		rockchip,baudrate = <1500000>;  /* Only 115200 and 1500000 */
+		interrupts = <GIC_SPI 423 IRQ_TYPE_LEVEL_LOW>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&uart2m0_xfer>;
+		status = "okay";
+	};
+
 	/* If hdmirx node is disabled, delete the reserved-memory node here. */
 	reserved-memory {
 		#address-cells = <2>;
@@ -182,20 +203,6 @@
     		regulator-ramp-delay = <10000>;  
 	};
 
-/*
-	vbus5v0_typec: vbus5v0-typec {
-		compatible = "regulator-fixed";
-		regulator-name = "vbus5v0_typec";
-		regulator-min-microvolt = <5000000>;
-		regulator-max-microvolt = <5000000>;
-		enable-active-high;
-		gpio = <&gpio4 RK_PD0 GPIO_ACTIVE_HIGH>;
-		vin-supply = <&vcc5v0_usb>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&typec5v_pwren>;
-	};
-
-*/
         vcc_1v1_nldo_s3: vcc-1v1-nldo-s3 {
                 compatible = "regulator-fixed";
                 regulator-name = "vcc_1v1_nldo_s3";
@@ -679,18 +686,6 @@
 		};
 	};
 
-	usb-typec {
-		usbc0_int: usbc0-int {
-			rockchip,pins = <0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
-		};
-
-/*
-		typec5v_pwren: typec5v-pwren {
-			rockchip,pins = <4 RK_PD0 RK_FUNC_GPIO &pcfg_pull_none>;
-		};
-*/
-	};
-
 	wireless-bluetooth {
 		uart8_gpios: uart8-gpios {
 			rockchip,pins = <3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
@@ -836,6 +831,10 @@
 		regulator-on-in-suspend;
 		regulator-suspend-microvolt = <850000>;
 	};
+};
+
+&rng {
+	status = "okay";
 };
 
 &sata0 {
